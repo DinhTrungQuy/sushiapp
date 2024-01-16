@@ -8,7 +8,7 @@ class IntroPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 138, 60, 55),
+      backgroundColor: const Color.fromARGB(255, 138, 60, 55),
       body: Padding(
         padding: const EdgeInsets.all(25.0),
         child: Column(
@@ -32,20 +32,20 @@ class IntroPage extends StatelessWidget {
                 'assets/images/logo.jpg',
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Text('THE TASTE OF JAPANESE FOOD',
                 style: GoogleFonts.dmSerifDisplay(
                     fontSize: 44, color: Colors.white)),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Text(
               'Feel the taste of the most popular Japanese food from anywhere',
               style: GoogleFonts.dmSerifDisplay(color: Colors.white, height: 2),
             ),
-            SizedBox(
+            const SizedBox(
               height: 25,
             ),
             MyButton(

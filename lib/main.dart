@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       home: const IntroPage(),
       routes: {
         '/intropage':(context) => const IntroPage(),
-        '/menupage': (context) => MenuPage(),
+        '/menupage': (context) => const MenuPage(),
       },
       debugShowCheckedModeBanner: false,
     );
