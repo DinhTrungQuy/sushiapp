@@ -12,7 +12,7 @@ class MyButton extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(20.0),
         decoration: BoxDecoration(
-          color: Color.fromARGB(212, 135, 81, 77),
+          color: const Color.fromARGB(212, 135, 81, 77),
           borderRadius: BorderRadius.circular(40),
         ),
         child: Row(
@@ -20,12 +20,12 @@ class MyButton extends StatelessWidget {
           children: [
             Text(
               text,
-              style: TextStyle(color: Colors.white),
+              style: const TextStyle(color: Colors.white),
             ),
-            SizedBox(
+            const SizedBox(
               width: 10,
             ),
-            Icon(Icons.arrow_forward, color: Colors.white, size: 20)
+            const Icon(Icons.arrow_forward, color: Colors.white, size: 20)
           ],
         ),
       ),
