@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:sushiapp/component/button.dart';
 import 'package:sushiapp/component/food_tile.dart';
-import 'package:sushiapp/model/food.dart';
+import 'package:sushiapp/model/cart.dart';
 import 'package:sushiapp/pages/food_details_page.dart';
+import 'package:sushiapp/theme/colors.dart';
 
 class MenuPage extends StatefulWidget {
   const MenuPage({super.key});
@@ -13,27 +15,9 @@ class MenuPage extends StatefulWidget {
 }
 
 class _MenuPageState extends State<MenuPage> {
-  final List foodMenu = [
-    Food(
-      name: 'Salmon Sushi',
-      prince: '21.00',
-      imagePath: 'assets/images/1.webp',
-      rating: '4.5',
-    ),
-    Food(
-      name: 'Tuna',
-      prince: '25.00',
-      imagePath: 'assets/images/2.webp',
-      rating: '5',
-    ),
-    Food(
-      name: 'Kimbap',
-      prince: '30.00',
-      imagePath: 'assets/images/3.jpg',
-      rating: '4',
-    ),
-  ];
   void navigateToFoodDetail(int index) {
+    final shop = context.read<ShoppingCart>();
+    final foodMenu = shop.foodMenu;
     Navigator.push(
         context,
         MaterialPageRoute(
@@ -42,6 +26,8 @@ class _MenuPageState extends State<MenuPage> {
 
   @override
   Widget build(BuildContext context) {
+    final shop = context.read<ShoppingCart>();
+    final foodMenu = shop.foodMenu;
     return Scaffold(
       backgroundColor: Colors.grey[300],
       appBar: AppBar(
@@ -53,13 +39,20 @@ class _MenuPageState extends State<MenuPage> {
           Icons.menu,
           color: Colors.grey[900],
         ),
+        actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/cartpage');
+              },
+              icon: const Icon(Icons.shopping_cart))
+        ],
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
             decoration: BoxDecoration(
-              color: const Color.fromARGB(255, 138, 60, 55),
+              color: primaryColor,
               borderRadius: BorderRadius.circular(20),
             ),
             padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),

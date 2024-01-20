@@ -42,7 +42,7 @@ class FoodTile extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    '\$${food.prince}',
+                    '\$${food.price}',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
